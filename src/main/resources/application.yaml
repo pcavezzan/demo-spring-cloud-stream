@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: spring-cloud-config-server
+
+  cloud:
+    function:
+      definition: consumer
+    stream:
+      output-bindings: producer
+      bindings:
+        consumer-in-0:
+          destination: my-topic
+          group: consumer
+          content-type: application/json
+          binder: kafka-binder
+        producer:
+          destination: my-topic
+          content-type: application/json
+          binder: kafka-binder
+      binders:
+        kafka-binder:
+          type: kafka
+          environment:
+            spring.cloud.stream.kafka:
+              binder:
+                brokers: localhost:9092
+                configuration:
+                  security:
+                    protocol: PLAINTEXT
+                  schema.registry.url: http://localhost:8081
+
+
+
+
+

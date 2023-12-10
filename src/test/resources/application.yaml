@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: spring-cloud-config-server
+
+  cloud:
+    function:
+      definition: consumer
+    stream:
+      output-bindings: producer
+      bindings:
+        consumer-in-0:
+          destination: my-topic
+          group: consumer
+          content-type: application/json
+        producer:
+          destination: my-topic
+          content-type: application/json
+
+
+
+
+
