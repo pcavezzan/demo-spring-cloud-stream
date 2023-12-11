@@ -41,22 +41,6 @@ services:
     volumes:
       - "kafka-data:/var/lib/kafka/data"
 
-  schema-registry:
-    image: 'confluentinc/cp-schema-registry:7.5.2'
-    environment:
-      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: PLAINTEXT://kafka:19092
-      SCHEMA_REGISTRY_HOST_NAME: localhost
-      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
-    ports:
-      - "8081:8081"
-    depends_on:
-      - kafka
-    healthcheck:
-      test: [ "CMD", "curl", "--output", "/dev/null", "--silent", "--head", "--fail", "http://schema-registry:8081/subjects" ]
-      interval: 30s
-      timeout: 10s
-      retries: 10
-
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
     ports:
