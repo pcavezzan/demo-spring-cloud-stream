@@ -12,21 +12,17 @@ spring:
           destination: my-topic
           group: consumer
           content-type: application/json
-          binder: kafka-binder
+          binder: kafka
         producer:
           destination: my-topic
           content-type: application/json
-          binder: kafka-binder
-      binders:
-        kafka-binder:
-          type: kafka
-          environment:
-            spring.cloud.stream.kafka:
-              binder:
-                brokers: localhost:9092
-                configuration:
-                  security:
-                    protocol: PLAINTEXT
+          binder: kafka
+      kafka:
+        binder:
+          brokers: localhost:9092
+          configuration:
+            security:
+              protocol: PLAINTEXT
 
 
 
