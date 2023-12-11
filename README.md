@@ -4,7 +4,8 @@ This repo shows how we can use spring cloud stream to process (consume, process 
 
 ## Prerequisites
 
-[JAVA 21](https://adoptium.net/temurin/releases/)
+* [JAVA 21](https://adoptium.net/temurin/releases/)
+* Docker
 
 ## How to run
 
