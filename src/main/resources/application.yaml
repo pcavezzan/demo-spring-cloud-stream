@@ -27,7 +27,6 @@ spring:
                 configuration:
                   security:
                     protocol: PLAINTEXT
-                  schema.registry.url: http://localhost:8081
 
 
 
